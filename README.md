@@ -4,7 +4,6 @@ codesandbox 원본 주소: https://codesandbox.io/s/class06-vg1ugv
 
 - md 파일 문법
 
-
 ```
 
 # ~ ###### : 제목
@@ -15,4 +14,23 @@ codesandbox 원본 주소: https://codesandbox.io/s/class06-vg1ugv
 
 ```
 
+## 클라인언트 서버 모델
 
+- 소프트웨어, IT 서비스 개발시 복잡한 네트워크 하드웨어를 배제한
+  공급자, 사용자 양쪽 부분만 고려한 모델
+- 클라이언트의 요청(request)과 서버의 응답(response)의 사이클을 통해
+  서비스의 데이터 처리등의 기능이 실행됨
+
+#### Front End Develop vs. Back End Develop
+
+- Front End, Back End 용어
+  - FRONT : 사용자를 기준으로 사용자와 맞닿을 수 있는 화면 영역
+  - END : 사용자가 보지 못하고, 서버상에서 데이터처리, 기능 동작등이 이루어지는 영역
+
+- FF DEV : 사용자가 볼 수 있는 화면 개발
+   - Web FF Dev : 브라우저에서 처리되고 렌더링되는 언어를 사용해서 개발
+   - 언어: HTML, CSS, Javascrip
+
+- BE DEV : 사용자가 보지 못하는 영역에서 데이터처리
+  - 서버에서 처리되는 언어를 사용해서 개발
+  - Java, PHP, Python, nodejs
