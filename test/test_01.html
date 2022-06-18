@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <style>
+      ol {
+        counter-reset: section;
+        list-style-type: none;
+      }
+      li::before {
+        counter-increment: section;
+        content: counters(section, ".") " ";
+      }
+    </style>
+  </head>
+
+  <body>
+    <h3>Contents</h3>
+    <ol>
+      <li>
+        History
+        <ol>
+          <li>Development</li>
+          <li>
+            HTML versions timeline
+            <ol>
+              <li>HTML2</li>
+              <li>HTML3</li>
+              <li>HTML4</li>
+              <li>HTML5</li>
+            </ol>
+          </li>
+          <li>HTML version draft timeline</li>
+          <li>Transition of HTML Publication to WHATWG</li>
+        </ol>
+      </li>
+      <li>
+        Markup
+        <ol>
+          <li>
+            Elements
+            <ol>
+              <li>
+                Elements examples
+                <ol>
+                  <li>headings</li>
+                </ol>
+              </li>
+              <li>Attributes</li>
+            </ol>
+          </li>
+          <li>Character and entity references</li>
+          <li>Data types</li>
+          <li>Document type declaration</li>
+        </ol>
+      </li>
+      <li>Semantic HTML</li>
+      <li>
+        Delivery
+        <ol>
+          <li>HTTP</li>
+          <li>HTTP email</li>
+          <li>Naming conventions</li>
+          <li>HTTP Application</li>
+        </ol>
+      </li>
+      <li>
+        HTML4 variations
+        <ol>
+          <li>SGML-based versus XML-based HTML</li>
+          <li>Transitional versus strict</li>
+          <li>Frameset versus transitional</li>
+          <li>Summary of specification versions</li>
+        </ol>
+      </li>
+      <li>WHATWG HTML versus HTML5</li>
+      <li>WYSIWYG editors</li>
+      <li>See also</li>
+      <li>References</li>
+      <li>External links</li>
+    </ol>
+  </body>
+</html>
