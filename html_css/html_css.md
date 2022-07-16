@@ -217,15 +217,17 @@
 
 - div (division)
   - block
-- span 
+- span
   - inline
 
 ## 경로 지정 방식
+
 - 파일 위치, 인터넷 주소(URL)
-- 상대 경로 
+- 상대 경로
   - 리소스 파일을 사용하는 HTML 파일 기준
-  - html  파일 위치에 따라 주소(URL) 변경
+  - html 파일 위치에 따라 주소(URL) 변경
   - root(/) 폴더를 기준으로 주소 적용 => root 상대 경로
+
 ```
 [root(/)] - [html1] - home.html
           - [html2] - [about] - about.html
@@ -239,9 +241,11 @@
 - ../../images/photo.jpg
 - /images/photo.jpg
 ```
+
 - 절대 경로
   - 이미지를 표시하는 HTML 페이지가 기준이 아니고, 해당 서버가 기준
   - 서버부터 주소(URL)를 사용하기 때문에 변동이 없음.
+
 ```
 image.com
 
@@ -259,9 +263,10 @@ image.com
 ## 강조 태그, 기타 태그
 
 - 텍스트 특정 부분 강조
+
   - strong : 강한 강조
   - em (emphasize) : 일반 강조
-  - mark : html5 버전, block 강조 
+  - mark : html5 버전, block 강조
 
 - 텍스트를 표현할 때 부족한 태그를 보완하는 태그
   - i (italic)
@@ -270,6 +275,7 @@ image.com
 # CSS
 
 - content styling
+
   - text styling
   - media styling
 
@@ -293,7 +299,7 @@ h1 {
 - 선택자로 HTML 요소를 선택
 - HTML 요소 선택 방법
   - Simple Selector(단순 선택자)
-    - Tag/Element  이름 사용
+    - Tag/Element 이름 사용
     - Class 이름 사용
     - id 이름 사용
 
@@ -319,11 +325,13 @@ a {
 ### id, class 이름의 특징
 
 - id
+
   - 같은 HTML 페이지에서 고유(유일)해야 함
     - 프로그래밍 언어의 변수와 연결 가능성이 있음
-  - HTML 요소에 여러개의 id  이름 사용 불가능
+  - HTML 요소에 여러개의 id 이름 사용 불가능
 
 - class
+
   - 같은 HTML 페이지에서 여러번 사용가능 함
   - HTML 요소에 여러개의 class 이름 사용 가능
 
@@ -342,13 +350,122 @@ a {
 ### CSS 선택자 우선순위
 
 - cascading 규칙
+
   - 동일한 대상에 여러 스타일이 적용될 때 제일 마지막에 적용된 스타일이 반영
 
 - 선택자 우선순위
   - 선택자 종류에 따라 CSS 적용 우선순위가 다르게 적용
   - cascading 규칙에 따르지 않고 CSS를 적용할 때 사용
   - CSS 우선순위
-      - Inline: 1000
-      - id: 100
-      - class: 10
-      - tag: 1
+    - Inline: 1000
+    - id: 100
+    - class: 10
+    - tag: 1
+
+### Text Styling
+
+#### Color
+
+```
+h1{
+  color:blue;
+}
+```
+
+#### Text alignment
+
+```
+p{
+  text-align:center;
+}
+```
+
+- 정렬 값: left, center, right, justify(양쪽 맞춤)
+- 단어 중간에 줄바꿈
+
+  - word-break
+
+  ```
+    p{
+      word-break:break-all;
+    }
+  ```
+
+#### Text Decoration
+
+```
+h1{
+  text-decoration:underline;
+  }
+
+h1{
+  text-decoration:line-through;
+  }
+
+h1{
+  text-decoration:overline;
+  }
+
+a{
+  text-decoration:none;
+  }
+
+```
+
+#### Text Spacing
+
+```
+p{
+  text-indent:16px;
+}
+
+h2{
+  letter-spacing:5px;
+}
+
+p{
+  word-spacing:3px;
+}
+
+p{
+  white-space:nowrap;
+}
+```
+
+-line-height -텍스트 줄을 포함한 줄 높이
+
+- 값
+  - px
+  - 배수: 소수점을 포함한 숫자 가능, 폰트 크기를 기준
+
+** 조상요소나 부모요소에 CSS 속성을 적용했을 때, 자식요소도 적용되는것을 상속
+  - HTML Element 중에 상속되지 않는 태그 있음
+  - CSS 속성중에 상속되지 않는 속성 있음
+
+#### Font Family
+
+- CSS 파일이 브라우저에서 랜더링되기 때문에 폰트 파일을 클라이언트 PC에서 찾음
+  - 다수의 클라이언트 pc에 설치될 만한 폰트를 선택(Web Safe)
+- font-family  속성에 값으로 정해준 폰트 종류를 차례대로 찾음(Fallback)
+
+- 서버에서 폰트를 사용할 수 있게 하는 기능
+  - Web Font
+
+- 구글 폰트
+
+- 폰트 종류(저작권)
+  - 폰트 파일 포함 여부
+
+
+#### Font size
+
+- font-style
+- 기울림꼴 설정
+- italic 값
+
+#### Font weight
+
+- font-weight
+- 굵기
+- normal/bold
+- 단위없는 100단위 숫자 값 사용
