@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Javascript Practice</title>
+  </head>
+  <body>
+    <h1>Javascript Practice</h1>
+
+    <ul class="list">
+      <li class="list-item">Banana</li>
+      <li class="list-item">Apple</li>
+    </ul>
+
+    <button type="button" class="create">Create</button>
+    <button type="button" class="read">Read</button>
+    <button type="button" class="update">Update</button>
+    <button type="button" class="delete">Delete</button>
+
+    <div class="print"></div>
+
+    <script>
+      //Create
+      let createBtn = document.querySelector(".create");
+      createBtn.addEventListener("click", function () {
+        let list = document.querySelector(".list");
+        let listItem = document.querySelector("li");
+
+        listItem.classList.add('list-item');
+        listItem.innerHTML = 'Javascript';
+        list.appendChild(listItem);
+
+      });
+
+      //Read
+      let readBtn = document.querySelector(".read");
+      readBtn.addEventListener("click", function () {
+        let listItem = document.querySelector('.listItem');
+        let print = document.querySelector('print')
+
+        print.innerHTML ='';
+
+        for(let i=0; i<listItem.length; i++){
+          print.innerHTML += listItem[i].innerHTML ='';
+        }
+
+      });
+
+      //Update
+      let updateBtn = document.querySelector(".update");
+      updateBtn.addEventListener("click", function () {
+        
+      });
+
+      //Delete
+      let deleteBtn = document.querySelector(".delete");
+      deleteBtn.addEventListener("click", function () {
+        //let list = document.querySelector(".list");
+        let listItem = document.querySelectorAll(".list-item");
+
+        listItem.remove(listItem[1]);
+
+      });
+    </script>
+  </body>
+</html>
