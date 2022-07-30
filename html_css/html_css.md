@@ -438,17 +438,19 @@ p{
   - px
   - 배수: 소수점을 포함한 숫자 가능, 폰트 크기를 기준
 
-** 조상요소나 부모요소에 CSS 속성을 적용했을 때, 자식요소도 적용되는것을 상속
-  - HTML Element 중에 상속되지 않는 태그 있음
-  - CSS 속성중에 상속되지 않는 속성 있음
+\*\* 조상요소나 부모요소에 CSS 속성을 적용했을 때, 자식요소도 적용되는것을 상속
+
+- HTML Element 중에 상속되지 않는 태그 있음
+- CSS 속성중에 상속되지 않는 속성 있음
 
 #### Font Family
 
 - CSS 파일이 브라우저에서 랜더링되기 때문에 폰트 파일을 클라이언트 PC에서 찾음
   - 다수의 클라이언트 pc에 설치될 만한 폰트를 선택(Web Safe)
-- font-family  속성에 값으로 정해준 폰트 종류를 차례대로 찾음(Fallback)
+- font-family 속성에 값으로 정해준 폰트 종류를 차례대로 찾음(Fallback)
 
 - 서버에서 폰트를 사용할 수 있게 하는 기능
+
   - Web Font
 
 - 구글 폰트
@@ -489,7 +491,6 @@ a:active{}
   - Box Model 적용
   - 위치 지정
 
-
 ### Layout styling
 
 - Element 영역
@@ -506,25 +507,25 @@ a:active{}
 #### Box Model
 
 - Box Model 구성요소
+
   - content(width/height), paddubg, border, margin
 
 - Inline 요소에 box model 적용
   - width/height: 적용 안됨
   - margin: 위아래 적용 안됨, 좌우 적용됨
 
-
 ##### width/height(block 요소)
-  - block 요소
-    - width는 부모요소에 채워짐
-    - height는 contents 또는 자식요소에 맞춰짐
-  - px
-    -수치 값으로 크기 고정
-  - %
-    - 부모 요소를 기준으로 일정 비율 크기만큼 지정
-    - height는 적용이 되지 않음
-  - auto
-    - width/height 자동으로 크기 지정
-    - width/height의 원래 특성으로 적용
+
+- block 요소
+  - width는 부모요소에 채워짐
+  - height는 contents 또는 자식요소에 맞춰짐
+- px -수치 값으로 크기 고정
+- %
+  - 부모 요소를 기준으로 일정 비율 크기만큼 지정
+  - height는 적용이 되지 않음
+- auto
+  - width/height 자동으로 크기 지정
+  - width/height의 원래 특성으로 적용
 
 ##### padding
 
@@ -583,9 +584,11 @@ background-attachment: fixed;
 ```
 
 - background-repeat
-  - repeat(default), repeat-x, repleat-y, no-repeat 
+
+  - repeat(default), repeat-x, repleat-y, no-repeat
 
 - background-position
+
   - px
   - left, center, right
   - top, center, bottom
@@ -612,7 +615,98 @@ display:inline-block; /* inline과 block의 특성을 모두 표시: 나란히 �
 - grid
 
 #### Flexbox
+
+- HTML Element가 포함 관계로 구성
+- 부모요소에 flex 설정, 배치관련 속성들을 적용
+
+```
+<div class="flex-container">
+  <div>1</div>
+  <div>2</div>
+  <div>3</div>
+</div>
+
+.flex-container{
+  display:flex;
+  flex-direction:column; /* 박스 배치 방향 */
+  flex-wrap:wrap; /*박스 배치 줄바꿈 */
+  justify-content: center; /* 박스 배치 가로 정렬, 간격 */
+  align-items: center; /* 박스 배치 세로 정렬 */
+}
+```
+
+#### position
+
+- 박스 위치 단독 지정
+- top, right, bottom, left 위치 지정 속정과 같이 사용
+
+- relative
+
+  - 박스 원래 위치에서 좌표 크기만큼 이동
+  - 요소의 일반 흐름에서 제외되지 않음
+
+- absolute
+
+  - position 속성이 적용된 가장 가까운 조상요소를 기준으로 위치 지정
+  - 요소의 일반 흐름에서 제외됨
+  - 문서에서 제외되지 않음
+
+- fixed
+  - browser를 기준으로 위치 지정
+  - 요서의 일반 흐름에서 제외됨
+  - 문서에서 제외됨
+
+#### z-index
+
+- 박수가 겹칠 때 앞위 순서 지정
+- 값은 단위없는 정수(양수, 음수)를 사용
+- z-index 사용할 때는 position 속성이 전용되어 있어야 함
+- 숫자가 크면 앞으로 나옴 (0 이 default)
+
+## 반응형 웹
+
+- 다양한 디바이스의 화면에 컨텐츠, 레이아웃이 잘 보이도록 스타일 구현
+- OSMU(One Source Multi Use)
+  - 하나의 HTML source, 여러개의 CSS source
+
+## 뷰포트
+
+- 모바일 디바이스 화면에 웹 페이지 컨텐츠나 레이아웃이 잘 보일 수 있도록 하는 기능
+- 뷰포트가 없을 때는 PC에 최적화된 레이아웃이 모바일 디바이스 화면에 보이게 됨
+
+### 미디어 퀴리
+
+- 특정 조건(상황)에 맞는지 비교
+- 특정 조건에 맞으면 포함되어 있는 CSS 코드 블럭을 실행
+
+```
+@media only screen and (max-width: 600px){}
+@media only screen and (min-width: 600px){}
+
+max-width: 600px => 600px 보다 작은 범위
+min-width: 600px => 600px 보다 큰 범위
+```
+디바이스 스크린의  가로 해상도를 기준
+
+- PC Monitor
+  - 1920px * 1080px : Full HD(1K)
+  - 3840px * 2160px : 4K
+  - 1280 * 720(1024) 
+  - 1024 * 768
+  
+- Tablet
+  - 1920 * 1080
+  - 1280 * 720
+  - 1024 * 768
+
+- Phone
+  - 400 * 800
+  - 320 * 640
+
+- Breakpoint
+  - 화면 크기에 따라 CSS가 다르게 적용되는 해상도 지점
+  - 위 해상도 사례에서 1024, 720, 320 해상도가 breakpoint가 선택될 수 있음
+
+  
+
  
-
-
-
