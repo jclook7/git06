@@ -514,6 +514,38 @@ a:active{}
   - width/height: 적용 안됨
   - margin: 위아래 적용 안됨, 좌우 적용됨
 
+- 박스 크기 계산
+  - 박스 모델 (width/heigh + padding + border) 크기 합 => 박스의 전체 크기
+
+ex) width: 300px, padding 4방향 모두 20px, border 4방향 1px
+=> 박스의 실제 크기 = 300 + 40(20*2) + 2(1*2) = 342px
+
+- box-sizing 속성
+  - width 기준을 content 또는 전체 크기 중에서 선택
+
+```
+div{
+  width:300px;
+  padding:20px;
+  border: 1px solid black;
+  box-sizing:content-box: /* default */
+}
+
+300 + 40 + 2 = 342px /* width:300px => content 영역의 크기*/
+
+div{
+  width:300px;
+  padding:20px;
+  border: 1px solid black;
+  box-sizing:border-box:
+}
+
+x + 40 + 2 = 300px /* width:300px => box 전체  */
+                   /* content 영역의 크기 : x = 300 - 40 - 2 */
+
+
+```
+
 ##### width/height(block 요소)
 
 - block 요소
@@ -707,6 +739,49 @@ min-width: 600px => 600px 보다 큰 범위
   - 화면 크기에 따라 CSS가 다르게 적용되는 해상도 지점
   - 위 해상도 사례에서 1024, 720, 320 해상도가 breakpoint가 선택될 수 있음
 
-  
+## color 값
+
+CSS에서 사용할 수 있는 color 값
+- red, blue, black
+- #a1eb35 : 16진수 값
+- rgb(0~255, 0~255, 0~255) : 10진수 값
+
+```
+컴퓨터에서 사용하는 진수 : 2진수
+2진수 데이터 : 01101110
+
+bit : 2진수 1자리 저정(표현)공간 / 컴퓨터 데이터의 최소 단위
+8bit = 1byte : 정보 표현의 최소단위 / 표현가능 계수 : 2^6 = 256
+
+RGB: Red, Green, Blue - 화면(screen) / 가산 혼합 (섞을수록 밝아진다)
+CMYK: Cyan, Magenta, Yellow, Blck - 인쇄 / 감산 혼합 (섞을수록 어두워진다)
+
+Red(1byte), Green(1byte), Blue(1byte) => 24bit 트루칼러 2^24
+
+16진수(0~9, a,b,c,d,e,f)
+2진수 4bit => 16진수 1bit
+24자리 2진수 => 6자리 
+Ex) #1a3cff, #555555 => #555, #55ffdd => #5fd
+
+cf) #ffffff : white / #000000 : black / #555555, #f9f9f9 : grey
+
+10진수
+함수 사용: rgb(red, green, blue) / rgb
+10진수 범위: 0~255
+
+Ex) rgb(0~255, 0~255, 0~255)
+```
+
+## image format
+
+ 비트맵
+ - 확대하면 깨짐
+ - jpg(색표현 우수), gif(투명배경, 애니메이션), png(투명배경)
+
+ 벡터
+ - 확대하고 안깨짐
+ - svg
+
+
 
  
