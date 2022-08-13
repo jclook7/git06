@@ -58,6 +58,8 @@ font-family: 'Noto Sans KR', sans-serif; */
   display:flex;
   justify-content: space-between;
   padding:30px 100px 0;
+  position: relative;
+  z-index: 999999;
 }
 
 .gnb-list{
@@ -107,8 +109,34 @@ font-family: 'Noto Sans KR', sans-serif; */
 .main-slogan{
   height:300px;
   background:#f5f5f5;
-  padding-top:100px;
   box-sizing:border-box;
+  position:relative;
+}
+
+.main-slogan-item{
+  position:absolute;
+  top: 0;
+  left: 0; /* dissolve 효과 적용시 위치 고정 */
+  width: 100%; /* absolute를 사용하면 기본 속성이 제거됨 => 100% 사용해야 함 */
+  height: 100%; /* absolute를 사용하면 height에 % 적용 가능 */
+  padding-top:100px;
+}
+
+.main-slogan-item.current{
+  /* left: 0; dissolve 효과 적용시 사용 안함 */
+  opacity: 1;
+  transition: opacoty 2s;
+}
+
+.main-slogan-item.next{
+  /* left: 100%;  dissolve 효과 적용시 사용 안함 */
+  opacity: 0;
+}
+
+.main-slogan-item.prev{
+  /* left: -100%;  dissolve 효과 적용시 사용 안함 */
+  opacity: 0;
+  transition: opacity 2s;
 }
 
 .section-heading{
@@ -128,6 +156,10 @@ font-family: 'Noto Sans KR', sans-serif; */
 
 .mt20{
   margin-top:20px;
+}
+
+.image-group:hover{
+  box-shadow: 10px 10px #555;
 }
 
 .image-group{
